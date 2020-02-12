@@ -14,9 +14,17 @@ public class StringsAndThings {
      *           countYZ("day fez"); // Should return 2
      *           countYZ("day fyyyz"); // Should return 2
      */
-    public Integer countYZ(String input){
-        return null;
+    public Integer countYZ(String input) {
+        int counter = 0;
+        String[] stringArray = input.split(" ");
+        for (String i : stringArray) {
+            if ( i.charAt(i.length()-1) == 'y' || i.charAt(i.length()-1) == 'z') {
+                counter++;
+            }
+        }
+        return counter;
     }
+
 
     /**
      * Given two strings, base and remove, return a version of the base string where all instances of the remove string have
@@ -27,8 +35,10 @@ public class StringsAndThings {
      *           removeString("Hello there", "e") //  Should return "Hllo thr"
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
-    public String removeString(String base, String remove){
-        return null;
+    public String removeString(String base, String remove) {
+        String modifiedString = "";
+        modifiedString = base.replaceAll(remove, "");
+        return modifiedString;
     }
 
     /**
@@ -40,7 +50,18 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int isCounter = 0;
+        int notCounter = 0;
+        char[] inputArray = input.toCharArray();
+        for (int i = 0; i < inputArray.length-1; i++ ) {
+            if ( inputArray[i] == 'i'  && inputArray[i+1] == 's' ) {
+                isCounter++;
+            }
+            if ( inputArray[i] == 'n' && inputArray[i+1]  == 'o' && inputArray[i+2] == 't') {
+                notCounter++;
+            }
+        }
+        return (isCounter == notCounter);
     }
 
     /**
@@ -51,7 +72,19 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        Boolean gIsHappy = true;
+        char[] inputArray = input.toCharArray();
+        for (int i = 0; i < input.length()-1; i++ ) {
+            if ( inputArray[i] == 'g'){
+                if (inputArray[i + 1] == 'g' || inputArray[i - 1] == 'g') {
+                     gIsHappy = true;
+                }
+                else {
+                    gIsHappy = false;
+                }
+            }
+        }
+        return gIsHappy;
     }
 
 
@@ -66,3 +99,4 @@ public class StringsAndThings {
         return null;
     }
 }
+
