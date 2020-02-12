@@ -53,11 +53,11 @@ public class StringsAndThings {
         int isCounter = 0;
         int notCounter = 0;
         char[] inputArray = input.toCharArray();
-        for (int i = 0; i < inputArray.length-1; i++ ) {
-            if ( inputArray[i] == 'i'  && inputArray[i+1] == 's' ) {
+        for (int i = 0; i < inputArray.length-1; i++) {
+            if (inputArray[i] == 'i'  && inputArray[i+1] == 's') {
                 isCounter++;
             }
-            if ( inputArray[i] == 'n' && inputArray[i+1]  == 'o' && inputArray[i+2] == 't') {
+            if (inputArray[i] == 'n' && inputArray[i+1]  == 'o' && inputArray[i+2] == 't' ) {
                 notCounter++;
             }
         }
@@ -74,7 +74,7 @@ public class StringsAndThings {
     public Boolean gIsHappy(String input){
         Boolean gIsHappy = true;
         char[] inputArray = input.toCharArray();
-        for (int i = 0; i < input.length()-1; i++ ) {
+        for (int i = 0; i < input.length()-1; i++) {
             if ( inputArray[i] == 'g'){
                 if (inputArray[i + 1] == 'g' || inputArray[i - 1] == 'g') {
                      gIsHappy = true;
@@ -96,7 +96,14 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int countTriple = 0;
+        for (int i=0; i < input.length() - 2; i++ ) {
+              if(input.charAt(i) == input.charAt(i+1) && input.charAt(i+1) == input.charAt(i+2)) {
+                  countTriple++;
+              }
+        }
+        return countTriple;
     }
+
 }
 
